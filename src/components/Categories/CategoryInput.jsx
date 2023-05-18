@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const CategoryInput = (categories = [], setCategories) => {
+const CategoryInput = ({categories = [], setCategories}) => {
   const [inputValue, setInputValue] = useState("")
 
   const handleInputChange = ({target}) => {
@@ -20,7 +20,7 @@ const CategoryInput = (categories = [], setCategories) => {
         value={inputValue}
       />
       <button
-        onClick={handleAddCategoryButton(e)}
+        onClick={(e) => handleAddCategoryButton(e)}
         className='btn btn-primary btn-sm ms-2 mb-1'
         type='button'
       >
