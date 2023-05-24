@@ -9,6 +9,7 @@ const CategoryInput = ({categories = [], setCategories}) => {
 
   const handleAddCategoryButton = () =>{
     setCategories([inputValue, ...categories])
+    setInputValue("")
   }
 
   return (
