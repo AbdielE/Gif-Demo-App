@@ -1,17 +1,22 @@
 import CategoriesList from "./CategoriesList"
 import CategoryInput from "./CategoryInput"
+import DeleteCategoriesList from "./DeleteCategoriesList"
 
 const Categories = ({categories = [], setCategories}) => {
   return (
     <div>
-        <CategoryInput
+        <div className="d-flex justify-content-between">
+          <CategoryInput
             categories={categories}
             setCategories={setCategories}
-        />
-        <br/>
+          />
+          <DeleteCategoriesList
+            setCategories={setCategories}
+          />
+        </div>
         <CategoriesList
-            categories={categories}
-            setCategories={setCategories}
+          categories={categories}
+          setCategories={setCategories}
         />
     </div>
   )
