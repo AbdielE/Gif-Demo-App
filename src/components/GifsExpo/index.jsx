@@ -1,11 +1,14 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const GifsExpo = ({categories = []}) => {
 
   const [urlList, setUrlList] = useState([])
 
     const getGifs = async (categories) => {
-
+      if(categories.length ===0){
+        setUrlList([])
+        return
+      }
       const responsesList = await Promise.all(categories.map(async (category) =>{
         const response = await fetch(
           `https://api.giphy.com/v1/gifs/search?api_key=C4kTA04UeVeljjVeBkLGaOTYrGYuKyFE&q=${category}&limit=10`
@@ -24,7 +27,12 @@ const GifsExpo = ({categories = []}) => {
 
       setUrlList([...gifsList])
     }
-    getGifs(categories)
+
+    useEffect(() => {
+        getGifs(categories)
+      },
+      [categories]
+    )
 
   return (
     <>
